@@ -1,0 +1,43 @@
+project_id = "kzfthxkbesbuczxgbaxt"
+
+[functions.oauth-callback]
+verify_jwt = false
+
+[functions.oauth-init]
+verify_jwt = false
+
+[functions.fetch-social-data]
+verify_jwt = false
+
+[functions.sync-social-data]
+verify_jwt = false
+
+[functions.meta-webhook]
+verify_jwt = false
+
+[functions.publish-media]
+verify_jwt = false
+
+[functions.create-subscription]
+verify_jwt = false
+
+[functions.razorpay-webhook]
+verify_jwt = false
+
+[functions.caption-test]
+verify_jwt = false
+
+[functions.cancel-subscription]
+verify_jwt = false
+
+[functions.verify-payment]
+verify_jwt = false
+
+[functions.activate-subscription]
+verify_jwt = false
+
+[functions.health]
+verify_jwt = false
+
+[functions.sync-youtube-analytics]
+verify_jwt = false

@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 96%;
+    --foreground: 240 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+
+    --primary: 265 90% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 8% 92%;
+    --secondary-foreground: 240 10% 20%;
+
+    --muted: 240 8% 92%;
+    --muted-foreground: 240 5% 45%;
+
+    --accent: 175 75% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 8% 86%;
+    --input: 240 8% 86%;
+    --ring: 265 90% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 30%;
+    --sidebar-primary: 265 90% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 8% 94%;
+    --sidebar-accent-foreground: 240 10% 10%;
+    --sidebar-border: 240 8% 88%;
+    --sidebar-ring: 265 90% 55%;
+
+    /* Custom tokens */
+    --neon-purple: 265 90% 55%;
+    --neon-cyan: 175 75% 40%;
+    --neon-pink: 330 80% 55%;
+    --surface-glow: 265 40% 92%;
+    --glass: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 250 15% 6%;
+    --foreground: 220 20% 92%;
+
+    --card: 250 12% 10%;
+    --card-foreground: 220 20% 92%;
+
+    --popover: 250 12% 10%;
+    --popover-foreground: 220 20% 92%;
+
+    --primary: 265 90% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 250 15% 16%;
+    --secondary-foreground: 220 20% 85%;
+
+    --muted: 250 12% 14%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 175 85% 55%;
+    --accent-foreground: 250 15% 6%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 250 12% 18%;
+    --input: 250 12% 18%;
+    --ring: 265 90% 65%;
+
+    --sidebar-background: 250 15% 8%;
+    --sidebar-foreground: 220 20% 75%;
+    --sidebar-primary: 265 90% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 250 15% 14%;
+    --sidebar-accent-foreground: 220 20% 92%;
+    --sidebar-border: 250 12% 15%;
+    --sidebar-ring: 265 90% 65%;
+
+    /* Custom tokens */
+    --neon-purple: 265 90% 65%;
+    --neon-cyan: 175 85% 55%;
+    --neon-pink: 330 85% 60%;
+    --surface-glow: 265 60% 12%;
+    --glass: 250 15% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .glow-purple {
+    box-shadow: 0 0 20px hsl(var(--neon-purple) / 0.15), 0 0 60px hsl(var(--neon-purple) / 0.05);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.15), 0 0 60px hsl(var(--neon-cyan) / 0.05);
+  }
+
+  .glow-border {
+    border: 1px solid hsl(var(--neon-purple) / 0.25);
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 rounded-xl;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--neon-purple))] to-[hsl(var(--neon-cyan))];
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--neon-purple) / 0.5), hsl(var(--neon-cyan) / 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .neon-dot {
+    @apply w-2 h-2 rounded-full;
+    background: hsl(var(--neon-cyan));
+    box-shadow: 0 0 8px hsl(var(--neon-cyan) / 0.6);
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--neon-purple) / 0.5);
+}
